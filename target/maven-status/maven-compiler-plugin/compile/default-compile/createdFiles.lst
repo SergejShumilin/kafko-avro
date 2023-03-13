@@ -1,0 +1,7 @@
+org\example\consumer\UserConsumer.class
+org\example\Main.class
+org\example\User$Builder.class
+org\example\AnotherUser.class
+org\example\User.class
+org\example\AnotherUser$Builder.class
+org\example\producer\UserProducer.class
