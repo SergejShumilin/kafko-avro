@@ -2,6 +2,7 @@
   "type": "record",
   "namespace": "org.example",
   "name": "User",
+  "version": 1,
   "fields" : [
     {
       "name": "message",

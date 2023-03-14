@@ -5,7 +5,6 @@ import io.confluent.kafka.serializers.subject.RecordNameStrategy;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.*;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
@@ -29,16 +28,14 @@ public class UserConsumer {
         this.consumer=new KafkaConsumer<String, GenericRecord>(properties);
     }
 
-    public void consume() throws IOException {
+    public void consume() {
         consumer.subscribe(List.of(topic));
         try {
-            while (true){
                 ConsumerRecords<String, GenericRecord> records = consumer.poll(100);
 
                 for (ConsumerRecord record : records){
-                    System.out.println(record.value());
+                    System.out.println(record);
                 }
-            }
         } finally {
         consumer.close();
         }
