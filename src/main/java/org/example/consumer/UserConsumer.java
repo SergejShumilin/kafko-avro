@@ -34,7 +34,7 @@ public class UserConsumer {
                 ConsumerRecords<String, GenericRecord> records = consumer.poll(5000);
 
                 for (ConsumerRecord record : records){
-                    System.out.println(record.value());
+                    System.out.println(record);
                 }
         } finally {
         consumer.close();
