@@ -31,9 +31,9 @@ public class UserProducer<T> {
         ProducerRecord<String, T> producerRecord = new ProducerRecord<>(topic, "key", t);
 
         try {
-            kafkaProducer.send(producerRecord);
-        } catch (SerializationException e) {
-            e.printStackTrace();
+            kafkaProducer.send(producerRecord).get();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

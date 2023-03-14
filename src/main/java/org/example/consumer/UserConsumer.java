@@ -31,10 +31,10 @@ public class UserConsumer {
     public void consume() {
         consumer.subscribe(List.of(topic));
         try {
-                ConsumerRecords<String, GenericRecord> records = consumer.poll(100);
+                ConsumerRecords<String, GenericRecord> records = consumer.poll(5000);
 
                 for (ConsumerRecord record : records){
-                    System.out.println(record);
+                    System.out.println(record.value());
                 }
         } finally {
         consumer.close();
